@@ -91,6 +91,25 @@ saccademodel.version
 For developers
 ==============
 
+Use virtualenv::
+
+    $ virtualenv -p python3.5 saccademodel-py
+    $ cd saccademodel-py
+    $ source bin/activate
+    ...
+    $ deactivate
+
+Requirements:
+
+- jupyter
+- bokeh
+  - redis
+  - numpy
+  - pandas
+
+Testing
+-------
+
 Follow `instructions to install pyenv
 <http://sqa.stackexchange.com/a/15257/14918>`_ and then either run quick tests::
 
