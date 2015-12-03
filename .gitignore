@@ -31,6 +31,7 @@ var/
 
 # Installer logs
 pip-log.txt
+pip-selfcheck.json
 pip-delete-this-directory.txt
 
 # Unit test / coverage reports
@@ -59,6 +60,7 @@ target/
 # Virtualenv
 /bin/
 /include/
+/share/
 
 # OS X
 .DS_Store
