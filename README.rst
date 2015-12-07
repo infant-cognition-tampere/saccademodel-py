@@ -27,7 +27,8 @@ As the **greatest disadvantage**, the *saccademodel* algorithm is suitable only 
 Install
 =======
 
-With `pip<http://example.com>`_::
+With `pip
+<http://example.com>`_::
 
     $ pip install saccademodel
 

@@ -25,7 +25,7 @@ setup(
     version='0.1.0',
     description='A least-squares optimal method to find the saccadic reaction time and the saccade duration from tracked gaze points',
     long_description=long_description,
-    url='https://github.com/infantcognitionlab/saccademodel-py',
+    url='https://github.com/infant-cognition-tampere/saccademodel-py',
     author='Akseli Palen',
     author_email='akseli.palen@gmail.com',
     license='MIT',
