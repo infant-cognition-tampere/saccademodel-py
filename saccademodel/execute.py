@@ -1,6 +1,6 @@
-from preprocess import gaze_repair
+from .preprocess import gaze_repair
 from math import floor
-from em import saccade_model_em
+from .em import saccade_model_em
 
 def fit(pointlist):
     '''

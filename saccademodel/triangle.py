@@ -10,7 +10,7 @@ class Triangle(object):
 
 	def __init__(self, edge_size, iterable):
 		self.n = edge_size
-		n_elements = edge_size * (edge_size + 1) / 2
+		n_elements = (edge_size * (edge_size + 1)) // 2
 		l = list(iterable)
 		if len(l) < n_elements:
 			n_missing = n_elements - len(l)
@@ -26,7 +26,7 @@ class Triangle(object):
 				row, col))
 		if row >= self.n or col >= self.n:
 			raise IndexError('Index ({}, {}) is out of range'.format(row, col))
-		return row * self.n - (row - 1) * ((row - 1) + 1) / 2 + col - row
+		return row * self.n - ((row - 1) * ((row - 1) + 1)) // 2 + col - row
 
 	def __repr__(self):
 		return '{0}({1} x {1})'.format(self.__class__.__name__, self.n)

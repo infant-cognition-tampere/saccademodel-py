@@ -1,5 +1,5 @@
-from mle import saccade_model_mle
-from utils import *
+from .mle import saccade_model_mle
+from .utils import *
 
 def saccade_model_em(pointlist):
     '''
@@ -93,9 +93,9 @@ def saccade_model_em(pointlist):
             # The next round either is minimal again or goes here.
             em_iters += 1
 
-            print 't_start: ' + str(t_start)
-            print 't_end: ' + str(t_end)
-            print 'mse: ' + str(mse)
+            print('t_start: ' + str(t_start))
+            print('t_end: ' + str(t_end))
+            print('mse: ' + str(mse))
         else:
             # Select the parameters that gave minimum error
             t_start, t_end, mse, d = t_history.get_minimum()

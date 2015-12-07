@@ -1,4 +1,4 @@
-from interpolate import interpolate_using_previous
+from .interpolate import interpolate_using_previous
 
 def gaze_repair(pointlist):
     '''

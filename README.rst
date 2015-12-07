@@ -99,8 +99,9 @@ Use virtualenv::
     ...
     $ deactivate
 
-Requirements:
+Dev. requirements:
 
+For `$ jupyter notebook` you need to install the following with `pip`:
 - jupyter
 - bokeh
   - redis
