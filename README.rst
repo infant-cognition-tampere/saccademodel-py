@@ -14,7 +14,7 @@ You have tracked the gaze points of the following event sequence:
 Now you want to determine:
 
 a. The time between events 1 and 2, called the *saccadic reaction time* or *SRT*.
-b. The time between events 2 and 3, called the *saccade duration* or *SD*. Saccadic execution time, SET?
+b. The time between events 2 and 3, called the *saccade duration* or *SD*.
 
 The *saccademodel* algorithm computes the times for you by fitting an ideal gaze path to the data. The ideal gaze path has the following structure. From t=0 to t=saccade_start the ideal gaze is exactly at point (A). From t=saccade_start to t=saccade_end the ideal gaze moves from (A) to (B) with constant velocity. From t=saccade_end to t=n the gaze remains at (B). The algorithm finds such times *saccade_start* and *saccade_end* that **minimize the mean squared error** between the ideal gaze path and the given tracked gaze points. In other words, the algorithm splits the data to three segments: source fixation, saccade, and target fixation.
 
@@ -24,18 +24,18 @@ As the **greatest disadvantage**, the *saccademodel* algorithm is suitable only 
 
 
 
-Install
-=======
+1. Install
+==========
 
 With `pip
-<http://example.com>`_::
+<https://pypi.python.org/pypi/saccademodel>`_::
 
     $ pip install saccademodel
 
 
 
-Usage
-=====
+2. Usage
+========
 
 The data structure **pointlist** is used thoroughly. It is a list of points, where each point is a list [x, y].
 
@@ -65,11 +65,12 @@ Note that the lengths of the returned lists can be used to determine saccadic re
     >>> saccade_duration = len(results.saccade_points) / framerate
 
 
-API
-===
 
-saccademodel.fit(gazepointlist)
--------------------------------
+3. API
+======
+
+3.1. saccademodel.fit(gazepointlist)
+------------------------------------
 
 Parameter:
 
@@ -83,14 +84,21 @@ Return dict with following keys:
 - mean_squared_error: the average squared error from the model for a point.
 
 
-saccademodel.version
---------------------
+3.2. saccademodel.version
+-------------------------
+
+The current version string::
+
+    >>> saccademodel.version
+    '1.2.3'
 
 
 
+4. For developers
+=================
 
-For developers
-==============
+4.1. Virtualenv
+---------------
 
 Use virtualenv::
 
@@ -100,41 +108,75 @@ Use virtualenv::
     ...
     $ deactivate
 
-Dev. requirements:
 
-For `$ jupyter notebook` you need to install the following with `pip`:
-- jupyter
-- bokeh
-  - redis
-  - numpy
-  - pandas
+4.2. Jupyter Notebook
+---------------------
 
-Testing
--------
+Usage::
+
+    $ cd explore
+    $ jupyter notebook
+
+Install requirements::
+
+    $ pip install --editable .[notebook]
+
+
+4.3. Testing
+------------
 
 Follow `instructions to install pyenv
 <http://sqa.stackexchange.com/a/15257/14918>`_ and then either run quick tests::
 
-    $ python2.7 setup.py test
+    $ python3.5 setup.py test
 
 or comprehensive tests for multiple Python versions in ``tox.ini``::
 
+    $ pyenv local 2.6.9 2.7.10 3.1.5 3.2.6 3.3.6 3.4.3 3.5.0
     $ eval "$(pyenv init -)"
     $ pyenv rehash
     $ tox
 
+Install new pyenv environments by::
+
+    $ pyenv install 3.4.5
+
+Validate README.rst at `http://rst.ninjs.org/
+<http://rst.ninjs.org/>`_
 
 
-Versioning
-==========
+4.4. Publishing to PyPI
+-----------------------
+
+Follow `python packaging instructions
+<https://python-packaging-user-guide.readthedocs.org/en/latest/distributing/>`_:
+
+1.  Create an unpacked sdist: ``$ python setup.py sdist``
+2.  Create a universal wheel: ``$ python setup.py bdist_wheel --universal``
+3.  Go to `PyPI and register the project by filling the package form
+    <https://pypi.python.org/pypi?%3Aaction=submit_form>`_ by uploading
+    ``saccademodel.egg-info/PKG_INFO`` file.
+4.  Upload the package with twine:
+
+    1. Sign the dist: ``$ gpg --detach-sign -a dist/saccademodel-1.2.3*``
+    2. Upload: ``twine upload dist/saccademodel-1.2.3*`` (will ask your PyPI password)
+
+5. Package published!
+
+Updating the package takes same steps except the 3rd.
+
+
+
+5. Versioning
+=============
 
 `Semantic Versioning 2.0.0
 <http://semver.org/>`_
 
 
 
-License
-=======
+6. License
+==========
 
 `MIT License
 <http://github.com/axelpale/nudged-py/blob/master/LICENSE>`_

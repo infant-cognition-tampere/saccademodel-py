@@ -10,6 +10,6 @@ def loader(name):
             filename without .json
     '''
     filename = os.path.join(base, name + '.json')
-    with open(filename, 'rb') as jsonfile:
+    with open(filename, 'r') as jsonfile:
         r = json.load(jsonfile)
         return r
