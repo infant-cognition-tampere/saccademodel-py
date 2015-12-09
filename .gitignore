@@ -64,3 +64,6 @@ target/
 
 # OS X
 .DS_Store
+
+# Jupyter
+.ipynb_checkpoints
