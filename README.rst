@@ -179,4 +179,4 @@ Updating the package takes same steps except the 3rd.
 ==========
 
 `MIT License
-<http://github.com/axelpale/nudged-py/blob/master/LICENSE>`_
+<https://opensource.org/licenses/MIT>`_
